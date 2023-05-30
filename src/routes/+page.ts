@@ -1,6 +1,6 @@
 import { photoStore } from '../lib/stores/PhotoStore';
 
-export async function load() {
+export async function load({ fetch }) {
 	let response = await fetch('https://jsonplaceholder.typicode.com/photos');
 	let photos: Photo[] = await response.json();
 
