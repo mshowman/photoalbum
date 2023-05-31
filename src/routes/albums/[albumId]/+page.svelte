@@ -1,24 +1,21 @@
 <script lang="ts">
-	import { Card, CardPlaceholder, Gallery } from 'flowbite-svelte';
+	import { goto } from '$app/navigation';
+	import { Card, Gallery } from 'flowbite-svelte';
 
 	export let data;
-
-	async function getAlbumPhotos(): Promise<Photo[]> {
-		let response = await fetch(`https://jsonplaceholder.typicode.com/photos?album=${data.albumId}`);
-		return await response.json();
-	}
 </script>
 
-<Gallery class="p-4 gap-4 grid-cols-5 bg-slate-500">
-	{#await getAlbumPhotos()}
-		{#each Array(10).fill(null) as _}
-			<CardPlaceholder />
-		{/each}
-	{:then photos}
-		{#each photos as photo}
-			<Card img={photo.url}>
-				<h3>{photo.id}: {photo.title}</h3>
-			</Card>
-		{/each}
-	{/await}
+<Gallery
+	class="p-4 gap-4 grid-cols-1 sm:grid-cols-5 bg-slate-300 overflow-y-scroll w-full h-screen pt-32"
+>
+	{#each data.album as photo}
+		<Card
+			class="hover:cursor-pointer"
+			id={`${photo.id}`}
+			img={photo.url}
+			on:click={() => goto(`/photos/${photo.id}`)}
+		>
+			<h3>{photo.id}: {photo.title}</h3>
+		</Card>
+	{/each}
 </Gallery>

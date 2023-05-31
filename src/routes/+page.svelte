@@ -1,12 +1,12 @@
 <script lang="ts">
 	import { photoStore } from '$lib/stores/PhotoStore';
-	import { Button, Carousel, Gallery, Modal } from 'flowbite-svelte';
+	import { Button, Card, Carousel, Gallery, Modal } from 'flowbite-svelte';
 
 	export let data;
 	let open = false;
 	let selectedAlbum: number | null = null;
 
-	let colors = ['green', 'purple', 'blue', 'pink', 'teal'];
+	let colors = ['green', 'purple', 'blue', 'red', 'yellow'];
 
 	$: selectedAlbumPhotos = getPhotosForCarousel(selectedAlbum);
 
@@ -28,36 +28,34 @@
 	}
 </script>
 
-<div class=" bg-slate-500">
-	<p class="font-semibold dark:text-white">Album View</p>
-	<p class="font-semibold dark:text-white">Click an album to view a preview gallery</p>
-	<Gallery class="gap-4 grid-cols-10 p-4">
+<div class="bg-slate-300 overflow-y-scroll h-screen pt-28">
+	<p class="font-semibold text-5xl text-center dark:text-white mt-2">Album View</p>
+	<p class="font-semibold text-3xl text-center dark:text-white mb-4">
+		Click an album to view a preview gallery
+	</p>
+	<Gallery class="gap-4 grid-cols-2 sm:grid-cols-10 p-4">
 		{#each data.albums as album, index}
-			<div
+			<Button
+				color={colors[index % 5]}
 				on:click={() => {
 					selectedAlbum = album;
 					open = true;
 				}}
-				on:keypress={() => {
-					selectedAlbum = album;
-					open = true;
-				}}
-				class={`flex items-center justify-center h-36 max-w- rounded-lg bg-${
-					colors[index % 5]
-				}-500 hover:cursor-pointer opacity-100 hover:opacity-70 hover:border-4 hover:border-white`}
+				class={`flex items-center justify-center h-36 max-w- rounded-lg opacity-100 hover:opacity-70 hover:border-4 hover:border-black`}
 			>
 				{album}
-			</div>
+			</Button>
 		{/each}
 	</Gallery>
 
 	<Modal bind:open placement="center">
 		<Button href={`/albums/${selectedAlbum}`}>View Entire Album</Button>
+		<p class="font-semibold text-lg">Preview of first 10 photos</p>
 		<Carousel
 			images={selectedAlbumPhotos.slice(0, 10)}
 			showIndicators={true}
-			showCaptions={true}
-			showThumbs={true}
+			showCaptions={false}
+			showThumbs={false}
 			loop
 			duration={1500}
 		/>

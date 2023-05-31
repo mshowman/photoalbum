@@ -1,8 +1,12 @@
-import { photoStore } from '../lib/stores/PhotoStore';
+import { photoStore } from '$lib/stores/PhotoStore';
 
 export async function load({ fetch }) {
-	let response = await fetch('https://jsonplaceholder.typicode.com/photos');
-	let photos: Photo[] = await response.json();
+	const getAlbums = async (): Promise<Photo[]> => {
+		let response = await fetch('https://jsonplaceholder.typicode.com/photos');
+		return await response.json();
+	};
+
+	const photos = await getAlbums();
 
 	// Add photos to writable store for later use
 	photoStore.setLibrary(photos);
