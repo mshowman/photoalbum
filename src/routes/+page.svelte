@@ -28,7 +28,7 @@
 	}
 </script>
 
-<div class="bg-slate-300 overflow-y-scroll h-screen pt-28">
+<div class="bg-slate-400 overflow-y-scroll h-screen w-full pb-28 fixed top-[64px] sm:top-[110px]">
 	<p class="font-semibold text-5xl text-center dark:text-white mt-2">Album View</p>
 	<p class="font-semibold text-3xl text-center dark:text-white mb-4">
 		Click an album to view a preview gallery

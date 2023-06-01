@@ -6,7 +6,7 @@
 </script>
 
 <Gallery
-	class="p-4 gap-4 grid-cols-1 sm:grid-cols-5 bg-slate-300 overflow-y-scroll w-full h-screen pt-32"
+	class="p-4 gap-4 grid-cols-1 sm:grid-cols-5 bg-slate-400 overflow-y-scroll w-full h-screen pb-32 fixed top-[64px] sm:top-[110px]"
 >
 	{#each data.album as photo}
 		<Card

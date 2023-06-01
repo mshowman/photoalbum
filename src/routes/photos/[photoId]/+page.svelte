@@ -14,7 +14,7 @@
 </script>
 
 <div
-	class="flex flex-col justify-evenly items-center h-screen sm:h-[calc(100vh-110px)] w-full overflow-y-scroll bg-slate-300 sm:absolute sm:top-[110px] px-2 pt-32 pb-2 sm:p-0"
+	class="flex flex-col justify-evenly items-center h-[calc(100vh-64px)] sm:h-[calc(100vh-110px)] w-full overflow-y-scroll bg-slate-400 fixed top-[64px] sm:top-[110px] px-2 sm:p-0"
 >
 	{#if !!photo}
 		<Card img={photo?.url} class="mx-2">
