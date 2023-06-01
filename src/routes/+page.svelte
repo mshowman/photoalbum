@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { photoStore } from '$lib/stores/PhotoStore';
-	import { Button, Card, Carousel, Gallery, Modal } from 'flowbite-svelte';
+	import { Button, Carousel, Gallery, Modal } from 'flowbite-svelte';
 
 	export let data;
 	let open = false;

@@ -1,17 +1,17 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import logo from '$lib/assets/logo.jpg';
 	import {
-		NavBrand,
-		Navbar,
-		Input,
-		NavHamburger,
 		Button,
-		NavUl,
+		Input,
+		Label,
+		NavBrand,
+		NavHamburger,
 		NavLi,
-		Label
+		NavUl,
+		Navbar
 	} from 'flowbite-svelte';
 	import '../app.postcss';
-	import logo from '$lib/assets/logo.jpg';
-	import { goto } from '$app/navigation';
 
 	let photoId: number | null = null;
 
