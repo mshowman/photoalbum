@@ -28,6 +28,10 @@ Tech showcase for UI using [Svelte](https://svelte.dev), Sveltekit, [Flowbite Sv
 
 ## Limitations / Future Thinking
 
+I tried to implement a bunch of things to enhance the showcase requirements. I decided to try Tailwind CSS for this project (just because I was interested in it), which I think looks pretty decent for a POC.
+
+Obviously, the testing applied to this app is limited. I tried to show unit testing and E2E testing using Vitest and Playwright respectively. I've never used either of these, but I have experience with Jest, Cypress, Selenium, etc. so it really wasn't any different.
+
 Navigating to `/photos` or `/albums` will redirect to `/`. I'd normally implement pages for these routes that would offer additional features like adding/editing/removing photos or albums, etc.
 
 Navigating to an invalid ID for photo or album will present a simple error page. I could see offering a page that would use incremental search so you could see all of the photos or albums that contain the search text.
