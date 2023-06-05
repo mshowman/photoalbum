@@ -45,6 +45,11 @@
 						class="pl-10 mb-4"
 						placeholder="Search by Photo ID"
 						bind:value={photoId}
+						on:keypress={(event) => {
+							if (event.key === 'Enter') {
+								viewPhotoById();
+							}
+						}}
 					>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
